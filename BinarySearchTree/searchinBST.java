@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class searchinBST {
   static class Node{
     int data;
