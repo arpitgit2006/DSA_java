@@ -8,6 +8,7 @@ public class InsertionInTrie {
       }
     }
   }
+  public static Node root=new Node();
   public static void insert(String str){
     Node curr=root;
     for(int i=0;i<str.length();i++){
@@ -19,7 +20,6 @@ public class InsertionInTrie {
     }
     curr.eow=true;
   }
-  public static Node root=new Node();
   public static void main(String[] args) {
     String words[]={"the","a","there","their","any","thee"};
     for(String c : words)
