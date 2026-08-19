@@ -14,7 +14,7 @@ public class dfs{
         }
     }
     public static void dfs(ArrayList<Node>[] graph,int curr,boolean arr[]){
-        System.out.println(curr+" ");
+        System.out.print(curr+" ");
         arr[curr]=true;
         for(int i=0;i<graph[curr].size();i++){
             Node n=graph[curr].get(i);
