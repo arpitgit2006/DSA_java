@@ -1,6 +1,6 @@
 package graph;
 import java.util.*;
-public class dfs{
+public class hasPath {
     static class Node{
         int source;
         int dest;
@@ -11,22 +11,26 @@ public class dfs{
             weight=w;
         }
     }
-    public static void dfs(ArrayList<Node>[] graph,int curr,boolean arr[]){
+    public static boolean hasPath(ArrayList<Node> graph[],int curr,boolean v[],int n){
         System.out.print(curr+" ");
-        arr[curr]=true;
+        if(curr==n)
+            return true;
+        v[curr]=true;
         for(int i=0;i<graph[curr].size();i++){
-            Node n=graph[curr].get(i);
-            if(!arr[n.dest]){
-                dfs(graph,n.dest,arr);
+            Node z=graph[curr].get(i);
+            if(!v[z.dest]){
+                if(hasPath(graph,z.dest,v,n))
+                    return true;
             }
         }
+        return false;
     }
     public static void main(String args[]){
         int v=7;
-        ArrayList<Node>[] graph=new ArrayList[v];
-        for(int i=0;i<v;i++){
+        ArrayList<Node> graph[]=new ArrayList[v];
+        for(int i=0;i<v;i++)
             graph[i]=new ArrayList<>();
-        }
+
         graph[0].add(new Node(0,1,1));
         graph[0].add(new Node(0,2,1));
         graph[1].add(new Node(1,0,1));
@@ -43,6 +47,6 @@ public class dfs{
         graph[5].add(new Node(5,4,1));
         graph[5].add(new Node(5,6,1));
         graph[6].add(new Node(6,5,1));
-        dfs(graph,0,new boolean[v]);
+        System.out.println(hasPath(graph,0,new boolean[v],5));
     }
 }
