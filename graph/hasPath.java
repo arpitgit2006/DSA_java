@@ -13,7 +13,7 @@ public class hasPath {
     }
     public static boolean hasPath(ArrayList<Node> graph[],int curr,boolean v[],int n){
         System.out.print(curr+" ");
-        if(curr==n)
+        if(curr==n)        
             return true;
         v[curr]=true;
         for(int i=0;i<graph[curr].size();i++){
@@ -47,6 +47,6 @@ public class hasPath {
         graph[5].add(new Node(5,4,1));
         graph[5].add(new Node(5,6,1));
         graph[6].add(new Node(6,5,1));
-        System.out.println(hasPath(graph,0,new boolean[v],5));
+        System.out.println(hasPath(graph,0,new boolean[v],6));
     }
 }
